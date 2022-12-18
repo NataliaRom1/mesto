@@ -1,0 +1,10 @@
+.profile__btn-edit {
+  grid-row: 1/2;
+  grid-column: 2/3;
+  background: url(../../../images/btn_edit.svg);
+  width: 24px;
+  height: 24px;
+  object-fit: contain;
+  background-repeat: no-repeat;
+  align-self: center;
+}

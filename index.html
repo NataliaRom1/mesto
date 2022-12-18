@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="ru">
+
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -10,13 +11,87 @@
   <link rel="stylesheet" href="./pages/index.css">
   <title>Mesto</title>
 </head>
+
 <body>
   <div class="root">
-    <header class="header"></header>
-    <main class="main"></main>
-    <footer class="footer"></footer>
+    <header class="header header__border">
+      <img src="./images/logo.svg" alt="Логотип Место Россия" class="header__logo">
+    </header>
+    <main class="main">
+
+      <section class="profile">
+        <img class="profile__avatar" alt="Фото Жак-Ив Кусто" src="../mesto/images/avatar_Jacques-Yves-Cousteau.png">
+        <div class="profile__info">
+          <h2 class="profile__info_name">Жак-Ив Кусто</h2>
+          <button class="button profile__btn-edit"></button>
+          <p class="profile__info_description">Исследователь океана</p>
+        </div>
+        <button class="button profile__btn-add"></button>
+      </section>
+
+      <section class="elements">
+        <div class="element">
+          <img class="element__img" alt="Фото церкви" src="./images/karachaevsk_church.png">
+          <div class="element__description">
+            <h2 class="element__heading">Карачаевск</h2>
+            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
+            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+          </div>
+        </div>
+
+        <div class="element">
+          <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
+          <div class="element__description">
+            <h2 class="element__heading">Гора Эльбрус</h2>
+            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
+            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+          </div>
+        </div>
+
+        <div class="element">
+          <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
+          <div class="element__description">
+            <h2 class="element__heading">Домбай</h2>
+            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
+            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+          </div>
+        </div>
+
+        <div class="element">
+          <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
+          <div class="element__description">
+            <h2 class="element__heading">Гора Эльбрус</h2>
+            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
+            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+          </div>
+        </div>
+
+        <div class="element">
+          <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
+          <div class="element__description">
+            <h2 class="element__heading">Домбай</h2>
+            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
+            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+          </div>
+        </div>
+
+        <div class="element">
+          <img class="element__img" alt="Фото церкви" src="./images/karachaevsk_church.png">
+          <div class="element__description">
+            <h2 class="element__heading">Карачаево-Ч.</h2>
+            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
+            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+          </div>
+        </div>
+      </section>
+
+    </main>
+    <footer class="footer">
+      <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
+    </footer>
   </div>
 
-<script src="./script.js"></script>
+  <script src="./script.js"></script>
 </body>
+
 </html>

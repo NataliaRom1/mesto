@@ -1,0 +1,34 @@
+.profile__info_description {
+  grid-row: 2/3;
+  grid-column: 1/3;
+  margin: 0;
+
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 22px;
+  color: #FFFFFF;
+}
+
+@media screen and (max-width: 522px) {
+  .profile__info_description {
+    justify-self: center;
+  }
+}
+
+@media (max-width: 768px) and (min-width: 321px) {
+  .profile__info_description {
+    /* 14px - 18px */
+    font-size: calc(14px + 4 * (100vw - 320px) / 447);
+    /* 17px - 22px */
+    line-height: calc(17px + 5 * (100vw - 320px) / 447);
+  }
+}
+
+@media screen and (max-width: 320px) {
+  .profile__info_description {
+  font-weight: 400;
+  font-size: 14px;
+  line-height: 17px;
+  text-align: center;
+  }
+}
