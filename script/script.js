@@ -16,8 +16,8 @@ popupCloseButtonElement.addEventListener('click', closePopup);
 let formElement = popupElement.querySelector('.pop-up__btn-save');
 let nameInput = popupElement.querySelector('.pop-up__name');
 let jobInput = popupElement.querySelector('.pop-up__description');
-let profileNameElement = document.querySelector('.profile__info_name');
-let profileDescriptionElement = document.querySelector('.profile__info_description');
+let profileNameElement = document.querySelector('.profile__name');
+let profileDescriptionElement = document.querySelector('.profile__description');
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
 function handleFormSubmit(evt) {
