@@ -8,8 +8,6 @@
 
 @media (max-width: 1279px) and (min-width: 321px) {
   .footer {
-    /* 19px - 200px */
-    /* margin-left: calc(19px + 181 * (100vw - 320px) / 958); */
     /* 48px - 66px */
     margin-top: calc(48px + 18 * (100vw - 320px) / 958);
     /* 36px - 60px */

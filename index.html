@@ -34,8 +34,7 @@
           <img class="element__img" alt="Фото церкви" src="./images/karachaevsk_church.png">
           <div class="element__description">
             <h2 class="element__heading">Карачаевск</h2>
-            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
-            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+            <button class="element__icon"></button>
           </div>
         </div>
 
@@ -43,8 +42,7 @@
           <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
           <div class="element__description">
             <h2 class="element__heading">Гора Эльбрус</h2>
-            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
-            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+            <button class="element__icon"></button>
           </div>
         </div>
 
@@ -52,8 +50,7 @@
           <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
           <div class="element__description">
             <h2 class="element__heading">Домбай</h2>
-            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
-            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+            <button class="element__icon"></button>
           </div>
         </div>
 
@@ -61,8 +58,7 @@
           <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
           <div class="element__description">
             <h2 class="element__heading">Гора Эльбрус</h2>
-            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
-            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+            <button class="element__icon"></button>
           </div>
         </div>
 
@@ -70,28 +66,36 @@
           <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
           <div class="element__description">
             <h2 class="element__heading">Домбай</h2>
-            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
-            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+            <button class="element__icon"></button>
           </div>
         </div>
 
         <div class="element">
           <img class="element__img" alt="Фото церкви" src="./images/karachaevsk_church.png">
           <div class="element__description">
-            <h2 class="element__heading">Карачаево-Ч.</h2>
-            <img class="element__icon element__icon_active" alt="Иконка белого сердечка" src="./images/heart_white.svg">
-            <!-- <img class="element__icon" alt="Иконка черного сердечка" src="./images/heart_white.svg"> -->
+            <h2 class="element__heading">Карачаево-Черкессия</h2>
+            <button class="element__icon"></button>
           </div>
         </div>
       </section>
-
     </main>
+
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-  </div>
 
-  <script src="./script.js"></script>
+    <section class="pop-up">
+      <div class="pop-up__container">
+        <p class="pop-up__title">Редактировать профиль</p>
+        <input type="text" class="pop-up__name pop-up__form" placeholder=" Жак-Ив Кусто" value="Жак-Ив Кусто" required>
+        <input type="text" class="pop-up__description pop-up__form" placeholder=" Исследователь океана" value="Исследователь океана" required>
+        <button class="button pop-up__btn-save">Сохранить</button>
+      </div>
+      <button class="button pop-up__btn-close"></button>
+    </section>
+
+  </div>
+  <script src="./script/script.js"></script>
 </body>
 
 </html>

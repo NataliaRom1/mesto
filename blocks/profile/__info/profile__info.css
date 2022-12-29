@@ -2,11 +2,7 @@
   display: grid;
   grid-template-columns: repeat(2, auto);
   grid-template-rows: repeat(2, auto);
-
-  /* display: flex;
-  flex-direction: column;
-  align-self: flex-start; */
-  margin: 0 244px 0 30px;
+  margin: 0 auto 0 30px;
   row-gap: 16px;
   column-gap: 18px;
 }
@@ -22,21 +18,19 @@
 
 @media screen and (max-width: 764px) {
   .profile__info {
-    margin: 0;
+    margin: 26px 0 36px;
   }
 }
 
-@media screen and (max-width: 522px) {
+@media (max-width: 763px) and (min-width: 438px) {
   .profile__info {
-    margin: 0;
-    /* justify-content: center; */
+    margin-left: 15px;
   }
 }
-
 
 @media screen and (max-width: 320px) {
   .profile__info {
-    margin-left: 0;
-    margin-right: 0;
+    row-gap: 14px;
+    column-gap: 10px;
   }
 }

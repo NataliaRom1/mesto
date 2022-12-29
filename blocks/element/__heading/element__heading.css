@@ -4,4 +4,8 @@
   font-size: 24px;
   line-height: 29px;
   color: #000000;
+  text-overflow: ellipsis;
+  white-space: nowrap; /* Запрещаем перенос строк */
+  overflow: hidden; /* Обрезаем все, что не помещается в область */
+  max-width: 184px;
 }

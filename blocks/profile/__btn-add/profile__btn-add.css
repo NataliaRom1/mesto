@@ -6,8 +6,15 @@
   background-repeat: no-repeat;
 }
 
+.profile__btn-add:hover {
+  opacity: 0.6;
+  cursor: pointer;
+}
+
 @media screen and (max-width: 764px) {
   .profile__btn-add {
+    background: url(../../../images/btn_add_big.svg);
     margin: 0 auto;
+    width: 282px;
   }
 }
