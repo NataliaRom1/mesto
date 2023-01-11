@@ -1,8 +1,11 @@
 .popup {
-  position: absolute;
+  position: fixed;
   display: none;
   width: 100%;
   height: 100%;
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 195px;
 }
 
 .popup::before {
@@ -12,7 +15,11 @@
   left: 0;
   width: 100%;
   height: 100%;
-  /* background: rgba(0, 0, 0, .5); */
-  background: #000000;
-  opacity: 0.5;
+  background: rgba(0, 0, 0, .5);
+}
+
+@media screen and (max-width: 768px) {
+  .popup {
+    padding-top: 123px;
+  }
 }

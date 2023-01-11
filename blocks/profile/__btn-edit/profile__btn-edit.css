@@ -3,11 +3,14 @@
   align-self: center;
   grid-row: 1/2;
   grid-column: 2/3;
-  background: url(../../../images/btn_edit.svg);
+  background: url(../../../images/edit_button.png);
   width: 24px;
   height: 24px;
-  object-fit: contain;
+  object-fit: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: 10px 10px;
+  border: 1px solid #FFF;
 }
 
 .profile__btn-edit:hover {
@@ -19,6 +22,7 @@
   .profile__btn-edit {
     width: 18px;
     height: 18px;
-    background-size: contain;
+    background-size: 7.5px 7.5px;
+    justify-self: start;
   }
 }

@@ -18,84 +18,77 @@
       <img src="./images/logo.svg" alt="Логотип Место Россия" class="header__logo">
     </header>
     <main class="main">
-
       <section class="profile">
         <img class="profile__avatar" alt="Фото Жак-Ив Кусто" src="./images/avatar_Jacques-Yves-Cousteau.png">
         <div class="profile__info">
-          <h2 class="profile__name">Жак-Ив Кусто</h2>
-          <button class="button profile__btn-edit"></button>
+          <h1 class="profile__name">Жак-Ив Кусто</h1>
+          <button class="button profile__btn-edit" type="button"></button>
           <p class="profile__description">Исследователь океана</p>
         </div>
-        <button class="button profile__btn-add"></button>
+        <button class="button profile__btn-add" type="button"></button>
       </section>
-
-      <section class="elements">
-        <div class="element">
-          <img class="element__img" alt="Фото церкви" src="./images/karachaevsk_church.png">
-          <div class="element__description">
-            <h2 class="element__heading">Карачаевск</h2>
-            <button class="element__icon"></button>
-          </div>
-        </div>
-
-        <div class="element">
-          <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
-          <div class="element__description">
-            <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__icon"></button>
-          </div>
-        </div>
-
-        <div class="element">
-          <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
-          <div class="element__description">
-            <h2 class="element__heading">Домбай</h2>
-            <button class="element__icon"></button>
-          </div>
-        </div>
-
-        <div class="element">
-          <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
-          <div class="element__description">
-            <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__icon"></button>
-          </div>
-        </div>
-
-        <div class="element">
-          <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
-          <div class="element__description">
-            <h2 class="element__heading">Домбай</h2>
-            <button class="element__icon"></button>
-          </div>
-        </div>
-
-        <div class="element">
+      <section class="elements" aria-label="Фотогалерея пользователя">
+        <article class="element">
           <img class="element__img" alt="Фото церкви" src="./images/karachaevsk_church.png">
           <div class="element__description">
             <h2 class="element__heading">Карачаево-Черкессия</h2>
-            <button class="element__icon"></button>
+            <button class="element__icon" type="button"></button>
           </div>
-        </div>
+        </article>
+        <article class="element">
+          <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
+          <div class="element__description">
+            <h2 class="element__heading">Гора Эльбрус</h2>
+            <button class="element__icon" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
+          <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
+          <div class="element__description">
+            <h2 class="element__heading">Домбай</h2>
+            <button class="element__icon" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
+          <img class="element__img" alt="Фото пейзажа" src="./images/pereslavl-zalessky.jpg">
+          <div class="element__description">
+            <h2 class="element__heading">Переславль-Залесский</h2>
+            <button class="element__icon" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
+          <img class="element__img" alt="Фото водопада" src="./images/sochi.jpg">
+          <div class="element__description">
+            <h2 class="element__heading">Сочи</h2>
+            <button class="element__icon" type="button"></button>
+          </div>
+        </article>
+        <article class="element">
+          <img class="element__img" alt="Фото церкви" src="./images/dagestan.jpg">
+          <div class="element__description">
+            <h2 class="element__heading">Дагестан</h2>
+            <button class="element__icon" type="button"></button>
+          </div>
+        </article>
       </section>
     </main>
-
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-
-    <section class="popup">
+    <div class="popup">
       <div class="popup__container">
-        <p class="popup__title">Редактировать профиль</p>
-        <input type="text" class="popup__name popup__form" placeholder=" Жак-Ив Кусто" value="Жак-Ив Кусто" required>
-        <input type="text" class="popup__description popup__form" placeholder=" Исследователь океана" value="Исследователь океана" required>
-        <button class="button popup__btn-save">Сохранить</button>
+        <button class="button popup__btn-close" type="button"></button>
+        <h2 class="popup__title">Редактировать профиль</h2>
+        <form class="popup__form" method="get" name="form">
+          <input type="text" class="popup__input_type_name popup__forms" name="name" placeholder="Ваше имя" required>
+          <input type="text" class="popup__input_type_description popup__forms" name="description"
+            placeholder="Расскажите о себе" required>
+          <button class="button popup__btn-save" type="submit">Сохранить</button>
+        </form>
       </div>
-      <button class="button popup__btn-close"></button>
-    </section>
-
+    </div>
   </div>
-  <script src="./script/script.js"></script>
+  <script src="./script/index.js"></script>
 </body>
 
 </html>
