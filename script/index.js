@@ -10,10 +10,10 @@ let profileDescriptionElement = document.querySelector('.profile__description');
 const openPopup = function () {
   nameInput.value = profileNameElement.textContent;
   descriptionInput.value = profileDescriptionElement.textContent;
-  popupElement.classList.add('popup_open');
+  popupElement.classList.add('popup_opened');
 }
 const closePopup = function () {
-  popupElement.classList.remove('popup_open');
+  popupElement.classList.remove('popup_opened');
 }
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
