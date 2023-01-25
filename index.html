@@ -28,58 +28,28 @@
         <button class="button profile__btn-add" type="button"></button>
       </section>
       <section class="elements" aria-label="Фотогалерея пользователя">
-        <article class="element">
-          <img class="element__img" alt="Фото церкви" src="./images/karachaevsk_church.png">
-          <div class="element__description">
-            <h2 class="element__heading">Карачаево-Черкессия</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__img" alt="Фото пейзажа" src="./images/elbrus_landscape.png">
-          <div class="element__description">
-            <h2 class="element__heading">Гора Эльбрус</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__img" alt="Фото гор" src="./images/dombai_mountains.png">
-          <div class="element__description">
-            <h2 class="element__heading">Домбай</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__img" alt="Фото пейзажа" src="./images/pereslavl-zalessky.jpg">
-          <div class="element__description">
-            <h2 class="element__heading">Переславль-Залесский</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__img" alt="Фото водопада" src="./images/sochi.jpg">
-          <div class="element__description">
-            <h2 class="element__heading">Сочи</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </article>
-        <article class="element">
-          <img class="element__img" alt="Фото церкви" src="./images/dagestan.jpg">
-          <div class="element__description">
-            <h2 class="element__heading">Дагестан</h2>
-            <button class="element__icon" type="button"></button>
-          </div>
-        </article>
+
+        <template id="element-template">
+          <article class="element">
+            <button class="element__trash-img" type="button"></button>
+            <img class="element__img">
+            <div class="element__description">
+              <h2 class="element__heading"></h2>
+              <button class="element__icon" type="button"></button>
+            </div>
+          </article>
+        </template>
+
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup">
+    <div class="popup popup__edit">
       <div class="popup__container">
         <button class="button popup__btn-close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
-        <form class="popup__form" method="get" name="form">
+        <form class="popup__form popup__form-edit" method="get" name="form">
           <input type="text" class="popup__input popup__input_type_name" name="name" placeholder="Ваше имя" required>
           <input type="text" class="popup__input popup__input_type_description" name="description"
             placeholder="Расскажите о себе" required>
@@ -87,6 +57,29 @@
         </form>
       </div>
     </div>
+
+    <div class="popup popup__add">
+      <div class="popup__container">
+        <button class="button popup__btn-close" type="button"></button>
+        <h2 class="popup__title">Новое место</h2>
+        <form class="popup__form popup__form-add" method="get" name="form">
+          <input type="text" class="popup__input popup__input_type_place-name" name="place-name" placeholder="Название"
+            required>
+          <input type="text" class="popup__input popup__input_type_place-link" name="place-link"
+            placeholder="Cсылка на картинку" required>
+          <button class="button popup__btn-create" type="submit">Создать</button>
+        </form>
+      </div>
+    </div>
+
+    <div class="popup popup__img">
+      <div class="popup__img_container">
+        <button class="button popup__btn-close popup__img_btn-close" type="button"></button>
+        <img class="popup__img_photo" src="#" alt="">
+        <h3 class="popup__img_title"></h3>
+      </div>
+    </div>
+
   </div>
   <script src="./script/index.js"></script>
 </body>
