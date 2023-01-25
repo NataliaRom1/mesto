@@ -1,14 +1,14 @@
 .popup_opened {
   visibility: visible;
   opacity: 1;
-  animation: fadeIn 0.4s ease-in;
-  -moz-animation: fadeIn 0.4s ease-in;
-  -webkit-animation: fadeIn 0.4s ease-in;
-  -ms-animation: fadeIn 0.4s ease-in;
-  -o-animation: fadeIn 0.4s ease-in;
+  animation: fade-in 0.4s ease-in;
+  -moz-animation: fade-in 0.4s ease-in;
+  -webkit-animation: fade-in 0.4s ease-in;
+  -ms-animation: fade-in 0.4s ease-in;
+  -o-animation: fade-in 0.4s ease-in;
 }
 
-@keyframes fadeIn {
+@keyframes fade-in {
   from {
     opacity: 0;
     visibility: hidden;
