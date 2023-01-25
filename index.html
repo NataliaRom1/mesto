@@ -28,7 +28,6 @@
         <button class="button profile__btn-add" type="button"></button>
       </section>
       <section class="elements" aria-label="Фотогалерея пользователя">
-
         <template id="element-template">
           <article class="element">
             <button class="element__trash-img" type="button"></button>
@@ -39,13 +38,12 @@
             </div>
           </article>
         </template>
-
       </section>
     </main>
     <footer class="footer">
       <p class="footer__copyright">&copy; 2022 Mesto Russia</p>
     </footer>
-    <div class="popup popup__edit">
+    <div class="popup popup-edit">
       <div class="popup__container">
         <button class="button popup__btn-close" type="button"></button>
         <h2 class="popup__title">Редактировать профиль</h2>
@@ -57,8 +55,7 @@
         </form>
       </div>
     </div>
-
-    <div class="popup popup__add">
+    <div class="popup popup-add">
       <div class="popup__container">
         <button class="button popup__btn-close" type="button"></button>
         <h2 class="popup__title">Новое место</h2>
@@ -71,17 +68,14 @@
         </form>
       </div>
     </div>
-
-    <div class="popup popup__img">
-      <div class="popup__img_container">
-        <button class="button popup__btn-close popup__img_btn-close" type="button"></button>
-        <img class="popup__img_photo" src="#" alt="">
-        <h3 class="popup__img_title"></h3>
+    <div class="popup popup-img">
+      <div class="popup-img__container">
+        <button class="button popup__btn-close popup-img__btn-close" type="button"></button>
+        <img class="popup-img__photo" src="#" alt="">
+        <h3 class="popup-img__title"></h3>
       </div>
     </div>
-
   </div>
   <script src="./script/index.js"></script>
 </body>
-
 </html>

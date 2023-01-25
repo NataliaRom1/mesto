@@ -1,8 +1,8 @@
 const popupElement = document.querySelector('.popup');
 
-const popupEditElement = document.querySelector('.popup__edit'); //имя попап
-const popupAddElement = document.querySelector('.popup__add'); //карточка попап
-const popupImgElement = document.querySelector('.popup__img'); //картинка попап
+const popupEditElement = document.querySelector('.popup-edit'); //имя попап
+const popupAddElement = document.querySelector('.popup-add'); //карточка попап
+const popupImgElement = document.querySelector('.popup-img'); //картинка попап
 
 
 const popupCloseButtonElement = popupElement.querySelector('.popup__btn-close');
@@ -117,9 +117,9 @@ const createCard = function (cardInfo) {
   // открытие попапа с карточкой по клику на картинку
   cardImageElement.addEventListener('click', function (evt) {
     openPopup(popupImgElement);
-    popupImgElement.querySelector('.popup__img_photo').src = cardImageElement.src;
-    popupImgElement.querySelector('.popup__img_photo').alt = cardImageElement.alt;
-    popupImgElement.querySelector('.popup__img_title').textContent = cardTitleElement.textContent;
+    popupImgElement.querySelector('.popup-img__photo').src = cardImageElement.src;
+    popupImgElement.querySelector('.popup-img__photo').alt = cardImageElement.alt;
+    popupImgElement.querySelector('.popup-img__title').textContent = cardTitleElement.textContent;
   });
 
   return cardElement;
