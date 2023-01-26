@@ -7,4 +7,5 @@
   flex-direction: column;
   background-color: #000;
   align-items: center;
+  min-height: 100vh;
 }

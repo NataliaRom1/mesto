@@ -28,16 +28,7 @@
         <button class="button profile__btn-add" type="button"></button>
       </section>
       <section class="elements" aria-label="Фотогалерея пользователя">
-        <template id="element-template">
-          <article class="element">
-            <button class="element__trash-img" type="button"></button>
-            <img class="element__img">
-            <div class="element__description">
-              <h2 class="element__heading"></h2>
-              <button class="element__icon" type="button"></button>
-            </div>
-          </article>
-        </template>
+
       </section>
     </main>
     <footer class="footer">
@@ -76,6 +67,19 @@
       </div>
     </div>
   </div>
+  <template id="element-template">
+    <article class="element">
+      <button class="element__trash-img" type="button"></button>
+      <img class="element__img">
+      <div class="element__description">
+        <h2 class="element__heading"></h2>
+        <button class="element__icon" type="button"></button>
+      </div>
+    </article>
+  </template>
+  <script src="./script/data.js"></script>
   <script src="./script/index.js"></script>
+
 </body>
+
 </html>
