@@ -36,7 +36,7 @@ const openPopup = function (popup) {
   popup.classList.add('popup_opened');
   popup.classList.remove('popup_closed');
 
-  popup.addEventListener('click', (evt) => closePopupByOverlayAndCross(evt));
+  popup.addEventListener('mousedown', (evt) => closePopupByOverlayAndCross(evt));
   document.addEventListener('keydown', (evt) => closePopupByEscape(evt));
 }
 
@@ -51,7 +51,7 @@ const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
   popup.classList.add('popup_closed');
 
-  popup.removeEventListener('click', (evt) => closePopupByOverlayAndCross(evt));
+  popup.removeEventListener('mousedown', (evt) => closePopupByOverlayAndCross(evt));
   document.removeEventListener('keydown', (evt) => closePopupByEscape(evt));
 }
 
