@@ -1,10 +1,10 @@
-const popupElement = document.querySelector('.popup');
+const popupElementList = document.querySelectorAll('.popup');
 
 const popupEditElement = document.querySelector('.popup-edit'); //имя попап
 const popupAddElement = document.querySelector('.popup-add'); //карточка попап
 const popupImgElement = document.querySelector('.popup-img'); //картинка попап
 
-const popupCloseButtonElement = popupElement.querySelector('.popup__btn-close');
+const popupCloseButtonElement = document.querySelectorAll('.popup__btn-close');
 const popupEditCloseButtonElement = popupEditElement.querySelector('.popup__btn-close');
 const popupAddCloseButtonElement = popupAddElement.querySelector('.popup__btn-close');
 const popupImgCloseButtonElement = popupImgElement.querySelector('.popup__btn-close');
@@ -16,10 +16,10 @@ const popupEditOpenButtonElement = document.querySelector('.profile__btn-edit');
 const popupAddOpenButtonElement = document.querySelector('.profile__btn-add'); //новый попап
 const cardCreateButtonElement = document.querySelector('.popup__btn-create'); //кнопка создание карточки из попапа
 
-const formElement = popupElement.querySelector('.popup__form');
 const formEditElement = popupEditElement.querySelector('.popup__form-edit');
 const formAddElement = popupAddElement.querySelector('.popup__form-add');
 
+// const popupInput = popupElement.querySelectorAll('.popup__input');
 const nameInput = popupEditElement.querySelector('.popup__input_type_name');
 const descriptionInput = popupEditElement.querySelector('.popup__input_type_description');
 const placeTitleInput = popupAddElement.querySelector('.popup__input_type_place-name');
@@ -35,6 +35,9 @@ const cardTemplateElement = document.querySelector('#element-template');
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
   popup.classList.remove('popup_closed');
+
+  popup.addEventListener('click', (evt) => closePopupByOverlayAndCross(evt));
+  document.addEventListener('keydown', (evt) => closePopupByEscape(evt));
 }
 
 // передать данные инпута попапа редактирования в профиль
@@ -43,14 +46,28 @@ const addData = function () {
   descriptionInput.value = profileDescriptionElement.textContent;
 }
 
-const removeData = function () {
-
-}
-
 // закрыть попап
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
   popup.classList.add('popup_closed');
+
+  popup.removeEventListener('click', (evt) => closePopupByOverlayAndCross(evt));
+  document.removeEventListener('keydown', (evt) => closePopupByEscape(evt));
+}
+
+function closePopupByOverlayAndCross(evt) {
+    if (evt.target.classList.contains('popup_opened') ||
+        evt.target.classList.contains('popup__btn-close')) {
+      const openedPopup = document.querySelector('.popup_opened');
+      closePopup(openedPopup);
+    }
+}
+
+function closePopupByEscape(evt) {
+  if (evt.key === 'Escape') {
+    const openedPopup = document.querySelector('.popup_opened');
+    closePopup(openedPopup);
+    }
 }
 
 // Обработчик «отправки» формы, хотя пока она никуда отправляться не будет
@@ -125,14 +142,7 @@ initialCards.forEach((item) => {
 });
 
 popupEditOpenButtonElement.addEventListener('click', () => openPopup(popupEditElement), addData());
-popupEditCloseButtonElement.addEventListener('click', () => closePopup(popupEditElement));
-
 popupAddOpenButtonElement.addEventListener('click', () => openPopup(popupAddElement));
-popupAddCloseButtonElement.addEventListener('click', () => closePopup(popupAddElement));
-
-popupImgCloseButtonElement.addEventListener('click', () => closePopup(popupImgElement));
 
 formEditElement.addEventListener('submit', handleFormEditSubmit); //изменить профиль
 formAddElement.addEventListener('submit', handleFormAddSubmit); //добавить карточку
-
-
