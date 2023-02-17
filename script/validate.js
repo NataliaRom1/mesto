@@ -73,8 +73,6 @@ function toggleButton(formElement, config) {
     // иначе сделай кнопку активной
     turnOnButton(buttonSubmit, config)
   }
-
-
 }
 
 // добавляет слушателей на инпуты

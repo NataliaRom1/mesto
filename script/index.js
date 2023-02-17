@@ -37,24 +37,14 @@ const cardTemplateElement = document.querySelector('#element-template');
 const openPopup = function (popup) {
   popup.classList.add('popup_opened');
   popup.classList.remove('popup_closed');
-
-  nameInput.value = profileNameElement.textContent;
-  descriptionInput.value = profileDescriptionElement.textContent;
-
-  clearErrors(popup)
-
+  
   popup.addEventListener('mousedown', closePopupByOverlayAndCross);
   document.addEventListener('keydown', closePopupByEscape);
 }
 
-function clearErrors(popup) {
-  // убирает текст ошибки
-  const formError = popup.querySelector('.form__input-error');
-  formError.textContent = '';
-
-  // убирает подчеркивание при ошибке
-  const openedPopupInput = popup.querySelectorAll('.popup__input');
-  openedPopupInput.forEach((item) => item.classList.remove(formValidationConfig.inputErrorClass));
+function updatePopupEditInputs() {
+  nameInput.value = profileNameElement.textContent;
+  descriptionInput.value = profileDescriptionElement.textContent;
 }
 
 // передать данные инпута попапа редактирования в профиль
@@ -160,10 +150,19 @@ initialCards.forEach((item) => {
 });
 
 popupEditOpenButtonElement.addEventListener('click', () => {
+  const inputPopupEditList = Array.from(popupEditElement.querySelectorAll(formValidationConfig.inputSelector));
+  updatePopupEditInputs();
+  inputPopupEditList.forEach((inputElement) => {
+    const formErrors = popupEditElement.querySelectorAll('.form__input-error');
+    formErrors.forEach((formError) => 
+      hideInputError(formValidationConfig, inputElement, formError)
+    )
+  });
   openPopup(popupEditElement);
   addData();
   turnOnButton(profileDataSaveButtonElement, formValidationConfig);
 });
+
 popupAddOpenButtonElement.addEventListener('click', () => {
   openPopup(popupAddElement);
   turnOffButton(cardCreateButtonElement, formValidationConfig);
