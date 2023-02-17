@@ -9,13 +9,17 @@ const formValidationConfig = {
 
 function enableValidation(config) {
   const formList = Array.from(document.querySelectorAll(config.formSelector)); //form
+
   formList.forEach((formElement) => {
+    addInputListeners(formElement, config);
+
     formElement.addEventListener('submit', function (evt) {
       evt.preventDefault();
+    });
+    formElement.addEventListener('input', function (evt) {
+      toggleButton(formElement, config);
     })
   });
-  addInputListeners(formList, config);
-  toggleButton(formList, config);
 }
 
 function checkInputValidity(evt, config) {
@@ -48,21 +52,29 @@ function hasInvalidInput(formElement) {
   return !isFormValid;
 }
 
-// активирует/деактивирует кнопки
-function toggleButton(formList, config) {
-  formList.forEach((formElement) => {
-    const buttonSubmit = formElement.querySelector(config.submitButtonSelector);
+function turnOffButton(buttonSubmit, config) {
+  buttonSubmit.classList.add(config.inactiveButtonClass);
+  buttonSubmit.disabled = true;
+}
 
-    if (hasInvalidInput(formElement)) {
-      // сделай кнопку неактивной
-      buttonSubmit.classList.add(config.inactiveButtonClass);
-      buttonSubmit.disabled = true;
-    } else {
-      // иначе сделай кнопку активной
-      buttonSubmit.classList.remove(config.inactiveButtonClass);
-      buttonSubmit.disabled = false;
-    }
-  });
+function turnOnButton(buttonSubmit, config) {
+  buttonSubmit.classList.remove(config.inactiveButtonClass);
+  buttonSubmit.disabled = false;
+}
+
+// активирует/деактивирует кнопки
+function toggleButton(formElement, config) {
+  const buttonSubmit = formElement.querySelector(config.submitButtonSelector);
+
+  if (hasInvalidInput(formElement)) {
+    // сделай кнопку неактивной
+    turnOffButton(buttonSubmit, config);
+  } else {
+    // иначе сделай кнопку активной
+    turnOnButton(buttonSubmit, config)
+  }
+
+
 }
 
 // добавляет слушателей на инпуты
@@ -78,4 +90,3 @@ function addInputListeners(formList, config) {
 }
 
 enableValidation(formValidationConfig);
-
