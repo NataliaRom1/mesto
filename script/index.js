@@ -47,6 +47,11 @@ function updatePopupEditInputs() {
   descriptionInput.value = profileDescriptionElement.textContent;
 }
 
+function clearPopupAddInputs() {
+  placeTitleInput.value = '';
+  placeLinkInput.value = '';
+}
+
 // передать данные инпута попапа редактирования в профиль
 const addData = function () {
   nameInput.value = profileNameElement.textContent;
@@ -164,6 +169,14 @@ popupEditOpenButtonElement.addEventListener('click', () => {
 });
 
 popupAddOpenButtonElement.addEventListener('click', () => {
+  const inputPopupAddList = Array.from(popupAddElement.querySelectorAll(formValidationConfig.inputSelector));
+  clearPopupAddInputs();
+  inputPopupAddList.forEach((inputElement) => {
+    const formErrors = popupAddElement.querySelectorAll('.form__input-error');
+    formErrors.forEach((formError) =>
+      hideInputError(formValidationConfig, inputElement, formError)
+    )
+  });
   openPopup(popupAddElement);
   turnOffButton(cardCreateButtonElement, formValidationConfig);
 })
