@@ -11,12 +11,6 @@ class FormValidator {
     this._buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
   }
 
-  // Получение формы
-  _getFormList() {
-    const formList = Array.from(document.querySelectorAll(this._formSelector)); //form
-    return formList;
-  }
-
   enableValidation() {
     this._addInputListeners();
     this._formElement.addEventListener('submit', function (evt) {
@@ -44,7 +38,7 @@ class FormValidator {
   };
 
   // Скрытие ошибки
-  hideInputError(inputElement, formError) {
+  _hideInputError(inputElement, formError) {
     inputElement.classList.remove(this._inputErrorClass);
     formError.classList.remove(this._errorClass);
     formError.textContent = '';
@@ -88,6 +82,15 @@ class FormValidator {
         this._toggleButton();
       });
     });
+  }
+
+  resetValidation() {
+    this._inputList = this._formElement.querySelectorAll(this._inputSelector);
+    this._inputList.forEach((inputElement) => {
+      const formError = document.querySelector(`#${inputElement.id}-error`);
+      this._hideInputError(inputElement, formError)
+    })
+    this._toggleButton()
   }
 }
 
