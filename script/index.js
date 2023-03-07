@@ -45,7 +45,6 @@ const openPopup = function (popup) {
   popup.classList.add('popup_opened');
   popup.classList.remove('popup_closed');
 
-  popup.addEventListener('mousedown', closePopupByOverlayAndCross);
   document.addEventListener('keydown', closePopupByEscape);
 }
 
@@ -69,6 +68,7 @@ const addData = function () {
 const closePopup = function (popup) {
   popup.classList.remove('popup_opened');
   popup.classList.add('popup_closed');
+  document.removeEventListener('keydown', closePopupByEscape);
 }
 
 function closePopupByOverlayAndCross(evt) {
@@ -81,6 +81,7 @@ function closePopupByOverlayAndCross(evt) {
 
 popupElementList.forEach((popup) => {
   popup.addEventListener('click', closePopupByOverlayAndCross)
+  popup.addEventListener('mousedown', closePopupByOverlayAndCross);
 })
 
 function closePopupByEscape(evt) {
@@ -144,14 +145,12 @@ popupEditOpenButtonElement.addEventListener('click', () => {
   validationProfile.resetValidation();
   openPopup(popupEditElement);
   addData();
-  validationProfile.turnOnButton();
 });
 
 popupAddOpenButtonElement.addEventListener('click', () => {
   clearPopupAddInputs();
   validationCard.resetValidation();
   openPopup(popupAddElement);
-  validationCard.turnOffButton();
 })
 
 formEditElement.addEventListener('submit', handleFormEditSubmit); //изменить профиль

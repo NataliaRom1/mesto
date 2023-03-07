@@ -9,6 +9,7 @@ class FormValidator {
 
     this._formElement = formElement;
     this._buttonSubmit = this._formElement.querySelector(this._submitButtonSelector);
+    this._inputList = this._formElement.querySelectorAll(this._inputSelector);
   }
 
   enableValidation() {
@@ -24,14 +25,14 @@ class FormValidator {
     const formError = document.querySelector(`#${inputElementId}-error`);
 
     if (!inputElement.validity.valid) {
-      this.showInputError(inputElement, formError);
+      this._showInputError(inputElement, formError);
     } else {
-      this.hideInputError(inputElement, formError);
+      this._hideInputError(inputElement, formError);
     }
   }
 
   // Показ ошибки
-  showInputError(inputElement, formError) {
+  _showInputError(inputElement, formError) {
     inputElement.classList.add(this._inputErrorClass); //подчеркивание
     formError.classList.add(this._errorClass); //текст ошибки стиль
     formError.textContent = inputElement.validationMessage; //текст ошибки
@@ -74,8 +75,6 @@ class FormValidator {
   }
 
   _addInputListeners() {
-    this._inputList = this._formElement.querySelectorAll(this._inputSelector);
-
     this._inputList.forEach((inputElement) => {
       inputElement.addEventListener('input', () => {
         this._checkInputValidity(inputElement);
@@ -85,7 +84,6 @@ class FormValidator {
   }
 
   resetValidation() {
-    this._inputList = this._formElement.querySelectorAll(this._inputSelector);
     this._inputList.forEach((inputElement) => {
       const formError = document.querySelector(`#${inputElement.id}-error`);
       this._hideInputError(inputElement, formError)
