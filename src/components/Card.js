@@ -34,7 +34,7 @@ class Card {
 
   // Поставить/снять лайк
   _toggleLike() {
-    this._cardLikeElement.classList.toggle('element__icon_active') 
+    this._cardLikeElement.classList.toggle('element__icon_active')
   }
 
   // Удаление карточки по клику на корзину
@@ -47,8 +47,6 @@ class Card {
   _handleClickByImage() {
     this._handleCardClick(this._name, this._link);
   }
-
-  
 
   // Установка слушателей на события
   _setEventListeners() {

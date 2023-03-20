@@ -43,3 +43,15 @@ export const formValidationConfig = {
   inputErrorClass: 'popup__input_type_error',
   errorClass: 'popup__error_visible'
 }
+
+export const cardListSectionSelector = 'elements';
+
+export const popupEditSelector = 'popup-edit';
+export const popupAddSelector = 'popup-add';
+export const popupImgSelector = 'popup-img';
+
+export const editFormSelector = 'popup__form-edit';
+export const addFormSelector = 'popup__form-add';
+
+export const userNameSelector = 'profile__name';
+export const userInfoSelector = 'profile__description';
