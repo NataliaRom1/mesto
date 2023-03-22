@@ -25,9 +25,9 @@ class Card {
 
     this._setEventListeners();
 
-    this._cardImageElement.src = `${this._link}`;
-    this._cardImageElement.alt = `${this._name}`;
-    this._cardTitleElement.textContent = `${this._name}`;
+    this._cardImageElement.src = this._link;
+    this._cardImageElement.alt = this._name;
+    this._cardTitleElement.textContent = this._name;
 
     return this._cardElement;
   }
@@ -41,6 +41,8 @@ class Card {
   _deleteCard() {
     this._cardElement.remove();
     this._cardElement = null;
+    this._cardLikeElement = null;
+    this._cardDeleteButtonElement = null;
   }
 
   // Открытие попапа с картинкой по клику на картинку

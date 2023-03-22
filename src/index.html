@@ -8,7 +8,6 @@
   <meta name="description" content="Проект 'Mesto' Наташи Романовской на Яндекс.Практикуме">
   <meta name="author" content="Наташа Романовская">
   <meta name="Keywords" content="Место, Исследователь, Россия">
-  <!-- <link rel="stylesheet" href="../pages/index.css"> -->
   <title>Mesto</title>
 </head>
 
@@ -40,29 +39,13 @@
         <h2 class="popup__title">Редактировать профиль</h2>
         <form class="form popup__form popup__form-edit" name="form-edit" method="get" novalidate>
 
-          <input 
-          type="text" 
-          class="popup__input popup__input_type_name" 
-          name="name" 
-          placeholder="Ваше имя" 
-          required 
-          id="name-input"
-          minlength="2"
-          maxlength="20"
-          >
+          <input type="text" class="popup__input popup__input_type_name" name="name" placeholder="Ваше имя" required
+            id="name-input" minlength="2" maxlength="20">
 
           <span class="form__input-error" id="name-input-error"></span>
 
-          <input 
-          type="text" 
-          class="popup__input popup__input_type_description" 
-          name="description"
-          placeholder="Расскажите о себе" 
-          required 
-          id="description-input"
-          minlength="2"
-          maxlength="200"
-          >
+          <input type="text" class="popup__input popup__input_type_description" name="description"
+            placeholder="Расскажите о себе" required id="description-input" minlength="2" maxlength="200">
 
           <span class="form__input-error" id="description-input-error"></span>
 
@@ -76,27 +59,13 @@
         <h2 class="popup__title">Новое место</h2>
         <form class="form popup__form popup__form-add" name="form-add" method="get" novalidate>
 
-          <input 
-          type="text" 
-          class="popup__input popup__input_type_place-name" 
-          name="place-name" 
-          placeholder="Название" 
-          required
-          id="place-name-input"
-          minlength="2"
-          maxlength="30"
-          >
+          <input type="text" class="popup__input popup__input_type_place-name" name="place-name" placeholder="Название"
+            required id="place-name-input" minlength="2" maxlength="30">
 
           <span class="form__input-error" id="place-name-input-error"></span>
 
-          <input 
-          type="url" 
-          class="popup__input popup__input_type_place-link" 
-          name="place-link"
-          placeholder="Cсылка на картинку" 
-          required 
-          id="place-link-input"
-          >
+          <input type="url" class="popup__input popup__input_type_place-link" name="place-link"
+            placeholder="Cсылка на картинку" required id="place-link-input">
 
           <span class="form__input-error" id="place-link-input-error"></span>
 
@@ -122,7 +91,6 @@
       </div>
     </article>
   </template>
-  <!-- <script type="module" src="./pages/index.js"></script> -->
 </body>
 
 </html>

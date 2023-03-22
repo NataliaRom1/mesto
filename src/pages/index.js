@@ -33,28 +33,21 @@ import {
   cardContainerElement
 } from '../utils/constants.js';
 
+function updatePopupEditInputs(profileInfo) {
+  nameInput.value = profileInfo.name;
+  descriptionInput.value = profileInfo.info;
+}
+
 
 const validationProfile = new FormValidator(formValidationConfig, formEditElement);
 validationProfile.enableValidation();
 const validationCard = new FormValidator(formValidationConfig, formAddElement);
 validationCard.enableValidation();
 
-
-function updatePopupEditInputs() {
-  nameInput.value = profileNameElement.textContent;
-  descriptionInput.value = profileDescriptionElement.textContent;
-}
-
-function clearPopupAddInputs() {
-  placeTitleInput.value = '';
-  placeLinkInput.value = '';
-}
-
-// передать данные инпута попапа редактирования в профиль
-const addData = function () {
-  nameInput.value = profileNameElement.textContent;
-  descriptionInput.value = profileDescriptionElement.textContent;
-}
+const userInfo = new UserInfo({
+  nameSelector: userNameSelector,
+  infoSelector: userInfoSelector
+});
 
 // открывает карточку 
 function handleCardClick(name, link) {
@@ -62,8 +55,8 @@ function handleCardClick(name, link) {
 }
 
 
-function createCard(placeInfo, templateSelector) {
-  const card = new Card(placeInfo, templateSelector, handleCardClick);
+function createCard(placeInfo) {
+  const card = new Card(placeInfo, "#element-template", handleCardClick);
   const cardElement = card.generateCard();
 
   return cardElement;
@@ -71,12 +64,9 @@ function createCard(placeInfo, templateSelector) {
 
 
 const cardsList = new Section({
-  items: initialCards,
+  items: initialCards.reverse(),
   renderer: (item) => {
-    const card = new Card(item, "#element-template", handleCardClick);
-    const cardElement = card.generateCard();
-
-    cardsList.addItem(cardElement)
+    cardsList.addItem(createCard(item))
   }
 },
   cardListSectionSelector
@@ -89,10 +79,10 @@ const editProfilePopup = new Popup(popupEditSelector);
 editProfilePopup.setEventListeners();
 
 popupEditOpenButtonElement.addEventListener('click', () => {
-  updatePopupEditInputs();
+  const profileInfo = userInfo.getUserInfo();
+  updatePopupEditInputs(profileInfo);
   validationProfile.resetValidation();
   editProfilePopup.open();
-  addData();
 });
 
 
@@ -100,7 +90,6 @@ const addCardPopup = new Popup(popupAddSelector);
 addCardPopup.setEventListeners();
 
 popupAddOpenButtonElement.addEventListener('click', () => {
-  clearPopupAddInputs();
   validationCard.resetValidation();
   addCardPopup.open();
 })
@@ -113,9 +102,11 @@ showCardPopup.setEventListeners();
 const editProfilePopupForm = new PopupWithForm(
   popupEditSelector,
   {
-    handleFormSubmit: () => {
-      profileNameElement.textContent = nameInput.value;
-      profileDescriptionElement.textContent = descriptionInput.value;
+    handleFormSubmit: (data) => {
+      userInfo.setUserInfo({
+        newName: data.name,
+        newInfo: data.description,
+      })
     }
   });
 editProfilePopupForm.setEventListeners();
@@ -124,18 +115,10 @@ editProfilePopupForm.setEventListeners();
 const addCardPopupForm = new PopupWithForm(
   popupAddSelector,
   {
-    handleFormSubmit: () => {
-      const placeTitle = placeTitleInput.value;
-      const placeLink = placeLinkInput.value;
-
-      const placeInfo = {};
-      placeInfo.name = placeTitle;
-      placeInfo.link = placeLink;
-
-      cardContainerElement.prepend(createCard(placeInfo, "#element-template", handleCardClick));
+    handleFormSubmit: (inputs) => {
+      cardsList.addItem(createCard(inputs));
     }
   }
 );
 addCardPopupForm.setEventListeners();
 
-const userInfo = new UserInfo({ userNameSelector, userInfoSelector });

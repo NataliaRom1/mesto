@@ -1,8 +1,8 @@
 // Отвечает за открытие и закрытие попапа
 class Popup {
+  // Принимает в конструктор единственный параметр — селектор попапа.
   constructor(popupSelector) {
-    // Принимает в конструктор единственный параметр — селектор попапа.
-    this._popupSelector = document.querySelector(`.${popupSelector}`);
+    this._popupSelector = document.querySelector(popupSelector);
 
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
@@ -27,7 +27,6 @@ class Popup {
   // Содержит логику закрытия попапа клавишей Esc
   _handleEscClose(evt) {
     if (evt.key === 'Escape') {
-      // this.openedPopup = document.querySelector('.popup_opened');
       this.close(this.__popupSelector);
     }
   }
@@ -36,14 +35,12 @@ class Popup {
   _handleOverlayAndCrossClose(evt) {
     if (evt.target.classList.contains('popup_opened') ||
       evt.target.classList.contains('popup__btn-close')) {
-      this._openedPopup = document.querySelector('.popup_opened');
       this.close();
     }
   }
 
   // Добавляет слушатель клика по крестику и оверлею
   setEventListeners() {
-    this._popupSelector.addEventListener('click', this._handleOverlayAndCrossClose)
     this._popupSelector.addEventListener('mousedown', this._handleOverlayAndCrossClose);
   }
 }
