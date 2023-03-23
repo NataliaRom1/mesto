@@ -2,7 +2,7 @@
 class Popup {
   // Принимает в конструктор единственный параметр — селектор попапа.
   constructor(popupSelector) {
-    this._popupSelector = document.querySelector(popupSelector);
+    this._popup = document.querySelector(popupSelector);
 
     this.open = this.open.bind(this);
     this.close = this.close.bind(this);
@@ -11,15 +11,15 @@ class Popup {
   }
 
   open() {
-    this._popupSelector.classList.add('popup_opened');
-    this._popupSelector.classList.remove('popup_closed');
+    this._popup.classList.add('popup_opened');
+    this._popup.classList.remove('popup_closed');
 
     document.addEventListener('keydown', this._handleEscClose);
   }
 
   close() {
-    this._popupSelector.classList.remove('popup_opened');
-    this._popupSelector.classList.add('popup_closed');
+    this._popup.classList.remove('popup_opened');
+    this._popup.classList.add('popup_closed');
 
     document.removeEventListener('keydown', this._handleEscClose);
   }
@@ -41,7 +41,7 @@ class Popup {
 
   // Добавляет слушатель клика по крестику и оверлею
   setEventListeners() {
-    this._popupSelector.addEventListener('mousedown', this._handleOverlayAndCrossClose);
+    this._popup.addEventListener('mousedown', this._handleOverlayAndCrossClose);
   }
 }
 
