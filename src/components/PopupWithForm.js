@@ -4,9 +4,10 @@ class PopupWithForm extends Popup {
   constructor(popupSelector, { handleFormSubmit }) {
     super(popupSelector);
     this._handleFormSubmit = handleFormSubmit;
-
+    
     this._formElement = this._popup.querySelector('.popup__form');
     this._inputList = this._popup.querySelectorAll('.popup__input');
+    this._popupBtnElement = this._popup.querySelector('.popup__button'); //Кнопка сохранить информацию
   }
 
   //  Cобирает данные всех полей формы
@@ -32,6 +33,11 @@ class PopupWithForm extends Popup {
   close() {
     this._formElement.reset();
     super.close();
+  }
+
+   // Меняем текст кнопки в процессе удаления
+  load(text) {
+    this._popupBtnElement.textContent = text;
   }
 }
 

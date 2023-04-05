@@ -18,7 +18,9 @@
     </header>
     <main class="main">
       <section class="profile">
-        <img class="profile__avatar" alt="Фото Жак-Ив Кусто" src="<%=require('./images/garfild.jpg')%>">
+        <button class="profile__btn-edit-avatar button" type="button">
+          <img class="profile__avatar" alt="Фото Жак-Ив Кусто" src="<%=require('./images/garfild.jpg')%>">
+        </button>
         <div class="profile__info">
           <h1 class="profile__name">Кот Гарфилд</h1>
           <button class="button profile__btn-edit" type="button"></button>
@@ -73,6 +75,7 @@
         </form>
       </div>
     </div>
+
     <div class="popup popup-img">
       <div class="popup-img__container">
         <button class="button popup__btn-close" type="button"></button>
@@ -80,17 +83,43 @@
         <h3 class="popup-img__title"></h3>
       </div>
     </div>
-  </div>
-  <template id="element-template">
-    <article class="element">
-      <button class="element__trash-img" type="button"></button>
-      <img class="element__img">
-      <div class="element__description">
-        <h2 class="element__heading"></h2>
-        <button class="element__icon" type="button"></button>
+
+    <div class="popup popup-delete">
+      <div class="popup__container popup-delete__container">
+        <button class="button popup__btn-close" type="button"></button>
+        <h2 class="popup__title">Вы уверены?</h2>
+        <form class="form popup__form popup__form-delete" name="form-delete" method="get" novalidate>
+          <button class="button popup__btn-delete popup__button" type="submit">Да</button>
+        </form>
       </div>
-    </article>
-  </template>
+    </div>
+
+    <div class="popup popup-update-avatar">
+      <div class="popup__container popup-update-avatar__container">
+        <button class="button popup__btn-close" type="button"></button>
+        <h2 class="popup__title">Обновить аватар</h2>
+        <form class="form popup__form popup__form-update-avatar" name="form-update-avatar" method="get" novalidate>
+          <input type="url" class="popup__input popup__input_type_avatar-link" name="avatar-link"
+            placeholder="Ссылка на фото" required id="avatar-link-input">
+          <span class="form__input-error" id="avatar-link-input-error"></span>
+          <button class="button popup__btn-save-avatar popup__button" type="submit">Сохранить</button>
+        </form>
+      </div>
+    </div>
+
+    <template id="element-template">
+      <article class="element">
+        <button class="element__trash-img" type="button"></button>
+        <img class="element__img">
+        <div class="element__description">
+          <h2 class="element__heading"></h2>
+          <div class="element__container">
+            <button class="element__icon" type="button"></button>
+            <div class="element__likes-num">2</div>
+          </div>
+        </div>
+      </article>
+    </template>
 </body>
 
 </html>
