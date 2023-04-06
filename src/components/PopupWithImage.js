@@ -4,8 +4,9 @@ import Popup from "./Popup.js";
 class PopupWithImage extends Popup {
   constructor(popupSelector) {
     super(popupSelector);
-    this._popupImgPhotoElement = document.querySelector(`${popupSelector}` + `__photo`);
-    this._popupImgTitleElement = document.querySelector(`${popupSelector}` + `__title`);
+
+    this._popupImgPhotoElement = this._popup.querySelector(`${popupSelector}` + `__photo`);
+    this._popupImgTitleElement = this._popup.querySelector(`${popupSelector}` + `__title`);
   }
 
   // Вставляет в попап картинку с src изображения и подписью к картинке и открывает его

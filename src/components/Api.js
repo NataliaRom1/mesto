@@ -4,6 +4,11 @@ class Api {
     this._headers = config.headers;
   }
 
+// Универсальный метод запроса с проверкой ответа
+  _request(url, options) {
+    return fetch(url, options).then(this._check)
+  }
+
   // Проверка, всё ли в порядке с ответом
   _check(res) {
     if (res.ok) {
@@ -15,69 +20,69 @@ class Api {
 
   // Загрузка информации о пользователе с сервера
   getUserInfo() {
-    return fetch(`${this._url}/users/me`, {
+    return this._request(`${this._url}/users/me`, {
       method: 'GET',
       headers: this._headers,
-    }).then(this._check);
+    })
   }
 
   // Загрузка начальных карточек с сервера
   getInitialCards() {
-    return fetch(`${this._url}/cards`, {
+    return this._request(`${this._url}/cards`, {
       method: 'GET',
       headers: this._headers,
-    }).then(this._check);
+    })
   }
 
   // Отправка отредактированных данных профиля на сервер
   setUserInfo({ name, about }) {
-    return fetch(`${this._url}/users/me`, {
+    return this._request(`${this._url}/users/me`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({ name, about }) //Делаем из объекта строку JSON
-    }).then(this._check);
+    })
   }
 
   // Добавление новой карточки
   addNewCard({ name, link }) {
-    return fetch(`${this._url}/cards`, {
+    return this._request(`${this._url}/cards`, {
       method: 'POST',
       headers: this._headers,
       body: JSON.stringify({ name, link })
-    }).then(this._check);
+    })
   }
 
   // Удаление карточки
   deleteCard(cardId) {
-    return fetch(`${this._url}/cards/${cardId}`, {
+    return this._request(`${this._url}/cards/${cardId}`, {
       method: 'DELETE',
       headers: this._headers,
-    }).then(this._check);
+    })
   }
 
   // Постановка лайка
   addLike(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
+    return this._request(`${this._url}/cards/${cardId}/likes`, {
       method: 'PUT',
       headers: this._headers,
-    }).then(this._check);
+    })
   }
 
   // Cнятие лайка
   removeLike(cardId) {
-    return fetch(`${this._url}/cards/${cardId}/likes`, {
+    return this._request(`${this._url}/cards/${cardId}/likes`, {
       method: 'DELETE',
       headers: this._headers,
-    }).then(this._check);
+    })
   }
 
   // Изменение автара
   editAvatar({ avatar }) {
-    return fetch(`${this._url}/users/me/avatar`, {
+    return this._request(`${this._url}/users/me/avatar`, {
       method: 'PATCH',
       headers: this._headers,
       body: JSON.stringify({ avatar }) //Делаем из объекта строку JSON
-    }).then(this._check);
+    })
   }
 }
 

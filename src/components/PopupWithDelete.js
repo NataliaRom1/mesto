@@ -27,6 +27,11 @@ class PopupWithDelete extends Popup {
     super.open();
   }
 
+  close() {
+    this._formElement.reset();
+    super.close();
+  }
+
   // Меняем текст кнопки в процессе удаления
   load(text) {
     this._popupBtnElement.textContent = text;

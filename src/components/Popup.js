@@ -27,7 +27,7 @@ class Popup {
   // Содержит логику закрытия попапа клавишей Esc
   _handleEscClose(evt) {
     if (evt.key === 'Escape') {
-      this.close(this.__popupSelector);
+      this.close();
     }
   }
 

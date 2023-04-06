@@ -45,10 +45,10 @@ let userId;
 
 
 // Функция обновления данных в инпутах попапа профиля
-function updatePopupEditInputs(profileInfo) {
-  nameInput.value = profileInfo.name;
-  descriptionInput.value = profileInfo.info;
-}
+// function updatePopupEditInputs(profileInfo) {
+//   nameInput.value = profileInfo.name;
+//   descriptionInput.value = profileInfo.info;
+// }
 
 // Функция открывает карточку 
 function handleCardClick(name, link) {
@@ -123,13 +123,14 @@ const editProfilePopup = new PopupWithForm(
       editProfilePopup.load('Сохранение...');
       api.setUserInfo({
         name: data.name,
-        about: data.description,
+        about: data.info,
       })
         .then(() => {
           userInfo.setUserInfo({
             newName: data.name,
-            newInfo: data.description,
+            newInfo: data.info,
           });
+          editProfilePopup.close();
         })
         .catch(err => console.log('Ошибка: ', err))
         .finally(() => {
@@ -141,7 +142,7 @@ editProfilePopup.setEventListeners();
 
 popupEditOpenButtonElement.addEventListener('click', () => {
   const profileInfo = userInfo.getUserInfo();
-  updatePopupEditInputs(profileInfo);
+  editProfilePopup.setInputValues(profileInfo);
   validationProfile.resetValidation();
   editProfilePopup.open();
 });
@@ -158,7 +159,8 @@ const addCardPopup = new PopupWithForm(
         link: inputs['place-link']
       })
         .then((data) => {
-          cardsList.addItem(createCard(data))
+          cardsList.addItem(createCard(data));
+          addCardPopup.close();
         })
         .catch(err => console.log('Ошибка: ', err))
         .finally(() => {
@@ -198,6 +200,7 @@ const deleteCardPopup = new PopupWithDelete(popupDeleteSelector,
       api.deleteCard(cardId)
         .then(() => {
           cardElement.deleteCard();
+          deleteCardPopup.close();
         })
         .catch(err => console.log('Ошибка: ', err))
         .finally(() => {
@@ -216,6 +219,8 @@ const editAvatarPopup = new PopupWithForm(popupEditAvatarSelector, {
     api.editAvatar({ avatar: data['avatar-link'] })
       .then((data) => {
         userInfo.setUserAvatar({ newAvatar: data.avatar });
+        editAvatarPopup.close();
+
       })
       .catch(err => console.log('Ошибка: ', err))
       .finally(() => {
@@ -226,6 +231,7 @@ const editAvatarPopup = new PopupWithForm(popupEditAvatarSelector, {
 editAvatarPopup.setEventListeners();
 
 avatarEditOpenButtonElement.addEventListener('click', () => {
+  editAvatarPopup.resetValidation();
   editAvatarPopup.open();
 })
 
