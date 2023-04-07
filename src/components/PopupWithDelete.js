@@ -6,17 +6,8 @@ class PopupWithDelete extends Popup {
 
     this._handleFormSubmit = handleFormSubmit;
     this._formElement = this._popup.querySelector('.popup__form');
-    this._popupBtnElement = this._popup.querySelector('.popup__button'); //Кнопка подверждения действия попапа
-  }
-
-  setEventListeners() {
-    super.setEventListeners();
-
-    this._formElement.addEventListener('submit', (evt) => {
-      evt.preventDefault();
-      this._handleFormSubmit(this._cardId, this._cardElement);
-      this.close();
-    })
+    this._submitBtn = this._popup.querySelector('.popup__button'); //Кнопка подверждения действия из попапа
+    this._submitBtnText = this._submitBtn.textContent; // фиксируем начальный текст кнопки 1 раз в конструкторе
   }
 
   // Открывает попап удаления
@@ -32,9 +23,22 @@ class PopupWithDelete extends Popup {
     super.close();
   }
 
-  // Меняем текст кнопки в процессе удаления
-  load(text) {
-    this._popupBtnElement.textContent = text;
+  // Меняем текст кнопки во время загрузки. Указываем 2 параметра (2й с текстом по умолчанию, чтобы не указывать лишний раз его)
+  renderLoading(isLoading, loadingText = 'Удаление...') {
+    if (isLoading) {
+      this._submitBtn.textContent = loadingText;
+    } else {
+      this._submitBtn.textContent = this._submitBtnText;
+    }
+  }
+
+  setEventListeners() {
+    super.setEventListeners();
+
+    this._formElement.addEventListener('submit', (evt) => {
+      evt.preventDefault();
+      this._handleFormSubmit(this._cardId, this._cardElement);
+    })
   }
 }
 

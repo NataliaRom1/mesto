@@ -62,7 +62,7 @@ class FormValidator {
     this._buttonSubmit.disabled = false;
 
   }
-
+  // Переключение кнопки
   _toggleButton() {
     if (this._hasInvalidInput(this._formElement)) {
       // сделай кнопку неактивной
@@ -82,6 +82,7 @@ class FormValidator {
     });
   }
 
+  // Очистка от ошибок
   resetValidation() {
     this._inputList.forEach((inputElement) => {
       const formError = document.querySelector(`#${inputElement.id}-error`);

@@ -15,14 +15,11 @@ class UserInfo {
     return profileInfo;
   }
 
-  // Принимает новые данные пользователя и добавляет их на страницу.
-  setUserInfo({ newName, newInfo }) {
-    this._name.textContent = newName;
-    this._info.textContent = newInfo;
-  }
-
-  setUserAvatar({ newAvatar }) {
-    this._avatar.src = newAvatar;
+  // Принимает данные пользователя и добавляет их на страницу.
+  setUserInfo({ name, about, avatar }) {
+    this._name.textContent = name;
+    this._info.textContent = about;
+    this._avatar.src = avatar;
   }
 }
 

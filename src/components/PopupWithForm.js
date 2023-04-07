@@ -7,7 +7,8 @@ class PopupWithForm extends Popup {
 
     this._formElement = this._popup.querySelector('.popup__form');
     this._inputList = this._popup.querySelectorAll('.popup__input');
-    this._popupBtnElement = this._popup.querySelector('.popup__button'); //Кнопка сохранить информацию
+    this._submitBtn = this._popup.querySelector('.popup__button'); // Кнопка подверждения действия из попапа
+    this._submitBtnText = this._submitBtn.textContent; // фиксируем начальный текст кнопки 1 раз в конструкторе
   }
 
   //  Cобирает данные всех полей формы
@@ -43,9 +44,13 @@ class PopupWithForm extends Popup {
     super.close();
   }
 
-  // Меняем текст кнопки в процессе удаления
-  load(text) {
-    this._popupBtnElement.textContent = text;
+   // Меняем текст кнопки во время загрузки. Указываем 2 параметра (2й с текстом по умолчанию, чтобы не указывать лишний раз его)
+  renderLoading(isLoading, loadingText = 'Сохранение...') {
+    if (isLoading) {
+      this._submitBtn.textContent = loadingText;
+    } else {
+      this._submitBtn.textContent = this._submitBtnText;
+    }
   }
 }
 
