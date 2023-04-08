@@ -125,11 +125,15 @@ const editProfilePopup = new PopupWithForm(
         name: data.name,
         about: data.info,
       })
-        .then(() => {
-          userInfo.setUserInfo({
-            newName: data.name,
-            newInfo: data.info,
-          });
+
+        .then((userData) => {
+          userInfo.setUserInfo(userData);
+        
+        // .then(() => {
+        //   userInfo.setUserInfo({
+        //     newName: data.name,
+        //     newInfo: data.info,
+        //   });
           editProfilePopup.close();
         })
         .catch(err => console.log('Ошибка: ', err))
@@ -217,8 +221,12 @@ const editAvatarPopup = new PopupWithForm(popupEditAvatarSelector, {
   handleFormSubmit: (data) => {
     editAvatarPopup.renderLoading(true);
     api.editAvatar({ avatar: data['avatar-link'] })
-      .then((data) => {
-        userInfo.setUserAvatar({ newAvatar: data.avatar });
+
+      .then((userData) => {
+        userInfo.setUserInfo(userData);
+
+      // .then((data) => {
+      //   userInfo.setUserAvatar({ newAvatar: data.avatar });
         editAvatarPopup.close();
 
       })
@@ -240,11 +248,14 @@ avatarEditOpenButtonElement.addEventListener('click', () => {
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, initialCardsData]) => {
     userId = userData._id;
-    userInfo.setUserInfo({
-      name: userData.name,
-      about: userData.about,
-      avatar: userData.avatar,
-    });
+
+    userInfo.setUserInfo(userData);
+
+    // userInfo.setUserInfo({
+    //   name: userData.name,
+    //   about: userData.about,
+    //   avatar: userData.avatar,
+    // });
     cardsList.renderItems(initialCardsData);
   })
   .catch((err) => {

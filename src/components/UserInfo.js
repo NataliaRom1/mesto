@@ -16,10 +16,11 @@ class UserInfo {
   }
 
   // Принимает данные пользователя и добавляет их на страницу.
-  setUserInfo({ name, about, avatar }) {
+  setUserInfo({ name, about, avatar, _id }) {
     this._name.textContent = name;
     this._info.textContent = about;
     this._avatar.src = avatar;
+    this._id = _id;
   }
 }
 
