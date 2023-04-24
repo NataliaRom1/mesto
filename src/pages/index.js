@@ -128,12 +128,6 @@ const editProfilePopup = new PopupWithForm(
 
         .then((userData) => {
           userInfo.setUserInfo(userData);
-        
-        // .then(() => {
-        //   userInfo.setUserInfo({
-        //     newName: data.name,
-        //     newInfo: data.info,
-        //   });
           editProfilePopup.close();
         })
         .catch(err => console.log('Ошибка: ', err))
@@ -224,11 +218,7 @@ const editAvatarPopup = new PopupWithForm(popupEditAvatarSelector, {
 
       .then((userData) => {
         userInfo.setUserInfo(userData);
-
-      // .then((data) => {
-      //   userInfo.setUserAvatar({ newAvatar: data.avatar });
         editAvatarPopup.close();
-
       })
       .catch(err => console.log('Ошибка: ', err))
       .finally(() => {
@@ -248,14 +238,7 @@ avatarEditOpenButtonElement.addEventListener('click', () => {
 Promise.all([api.getUserInfo(), api.getInitialCards()])
   .then(([userData, initialCardsData]) => {
     userId = userData._id;
-
     userInfo.setUserInfo(userData);
-
-    // userInfo.setUserInfo({
-    //   name: userData.name,
-    //   about: userData.about,
-    //   avatar: userData.avatar,
-    // });
     cardsList.renderItems(initialCardsData);
   })
   .catch((err) => {

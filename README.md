@@ -36,8 +36,8 @@
 
 Клонировать репозиторий:
 
-    git clone https://github.com/ia-stepanov/mesto.git
-
+    git clone https://github.com/NataliaRom1/mesto.git
+    
 Установить зависимости:
 
     npm install
